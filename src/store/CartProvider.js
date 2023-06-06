@@ -12,7 +12,7 @@ const cartReducer = (state, action) => {
         const updatedItems = state.items.concat(action.item) //Old state snapshot + the new input from the action
         const updatedTotalAmount = state.totalAmount + action.item.price * action.item.amount
         return {
-            item: updatedItems,
+            items: updatedItems,
             totalAmount: updatedTotalAmount
         }
     }
@@ -22,12 +22,12 @@ const cartReducer = (state, action) => {
 const CartProvider = props => {
     const [cartState, dispatchCartAction] = useReducer(cartReducer, defaultCartState)
 
-    const addItemToCartHandler = item => {
+    const addItemToCartHandler = (item) => {
         dispatchCartAction({
             type: 'ADD',item: item
         })
     }
-    const removeItemFromCartHandler = id => {
+    const removeItemFromCartHandler = (id) => {
         dispatchCartAction({
             type: 'REMOVE', id: id
         })
