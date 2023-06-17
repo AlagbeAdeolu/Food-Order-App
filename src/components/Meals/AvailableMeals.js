@@ -12,7 +12,7 @@ const AvailableMeals = () => {
     const fetchMeals = async () => {
       setIsLoading(true)
       setError(null)
-      const response = await fetch('https://react-http-e261c-default-rtdb.firebaseio.com/meals')
+      const response = await fetch('https://react-http-e261c-default-rtdb.firebaseio.com/meals.json')
       if (!response.ok) {
         throw new Error('Something went Wrong')
       }
