@@ -33,10 +33,11 @@ const Checkout = (props) => {
 
     setFormInputsValidity({
         name: enteredNameIsValid,
-        street: enteredStreetIsValid,
+        street: enteredStreetIsValid, 
         city: enteredCityIsValid,
         postalCode: enteredPostalCodeIsValid,
       });
+      
   
       const formIsValid =
       enteredNameIsValid &&
@@ -47,6 +48,12 @@ const Checkout = (props) => {
     if (!formIsValid) {
       return;
     }
+    props.onConfirm({
+        name: enteredName,
+        city: enteredCity,
+        street: enteredStreet,
+        postalCode: enteredPostalCode
+      })
 
 
   };
@@ -90,7 +97,7 @@ const Checkout = (props) => {
         <button type="button" onClick={props.onCancel}>
           Cancel
         </button>
-        <button className={classes.submit}>Confirm</button>
+        <button className={classes.submit}  >Confirm</button>
       </div>
     </form>
   );
